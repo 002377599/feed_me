@@ -9,6 +9,7 @@
 
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
+import { AppRegistry, View, Image } from 'react-native';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -26,7 +27,9 @@ export default class App extends Component<Props> {
         <Text style={styles.instructions}>To get started, edit App.js</Text>
         <Text style={styles.instructions}>{instructions}</Text>
         <Text style={styles.instructions}>we are in main</Text>
-        <Image source={}/>
+        <Image
+          style={{width: 25, height: 25}}
+          source={require('./images/feedME_logo.png')}/>
       </View>
     );
   }
