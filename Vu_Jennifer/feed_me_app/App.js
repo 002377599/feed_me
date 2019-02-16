@@ -9,8 +9,11 @@
 
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
+<<<<<<< HEAD
 //import { Image } from 'react-native';
 //jkgjdf
+=======
+>>>>>>> parent of 77fadb8... added image code
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -28,9 +31,13 @@ export default class App extends Component<Props> {
         <Text style={styles.instructions}>To get started, edit App.js</Text>
         <Text style={styles.instructions}>{instructions}</Text>
         <Text style={styles.instructions}>we are in main</Text>
+<<<<<<< HEAD
         //<Image
           //style={{width: 25, height: 25}}
           //source={require('./images/feedME_logo.png')}/>
+=======
+        <Image source={}/>
+>>>>>>> parent of 77fadb8... added image code
       </View>
     );
   }
