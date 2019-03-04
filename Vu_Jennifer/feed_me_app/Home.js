@@ -9,11 +9,11 @@ const instructions = Platform.select({
 });
 
 type Props = {};
-export default class App extends React.Component{
+export default class App extends Component<Props>{
   render() {
     return (
       <View style={styles.container}>
-        {/*This displays the logo*/}
+
         <View style={styles.logoContainer}>
           <Image
             style = {styles.logo}
@@ -21,7 +21,7 @@ export default class App extends React.Component{
             resizeMode="contain"
           />
         </View>
-      {/*This displays the user login button*/}
+
         <View style={styles.buttonContainer}>
           <View style={styles.button}>
             <Button
@@ -29,13 +29,14 @@ export default class App extends React.Component{
               color="#841584"
               accessibilityLabel="User Login"
               onPress={() =>
-                this.props.navigation.navigate('UserLogin')
+                this.props.navigation.navigate('UserLogin')}
             />
           </View>
-        {/*This displays the nearby food trucks button*/}
+
           <View style={styles.button}>
             <Button
-              onPress={this._onPressButton}
+              onPress={() =>
+                this.props.navigation.navigate('UserLogin')}
               title="Nearby Food Trucks"
               color="#841584"
               accessibilityLabel="Nearby Food Trucks"
