@@ -36,7 +36,7 @@ export default class App extends Component<Props>{
           <View style={styles.button}>
             <Button
               onPress={() =>
-                this.props.navigation.navigate('UserLogin')}
+                this.props.navigation.navigate('NearbyFoodTrucks')}
               title="Nearby Food Trucks"
               color="#841584"
               accessibilityLabel="Nearby Food Trucks"
