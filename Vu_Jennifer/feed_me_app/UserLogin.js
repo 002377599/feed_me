@@ -8,6 +8,7 @@ export default class UserLogin extends React.Component {
         <Text style={styles.container}>
           In User Login page
         </Text>
+        
         <Button
           title="Back to home"
           onPress={() =>
@@ -25,5 +26,15 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  buttonContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 250,
+  },
+  button: {
+    width: 100,
+    height: 65,
+    margin: 15,
   },
 });

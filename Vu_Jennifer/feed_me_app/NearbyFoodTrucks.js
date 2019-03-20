@@ -1,12 +1,13 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
-import MapView from 'react-native-maps'
+import MapView, {PROVIDER_GOOGLE} from 'react-native-maps'
 
 export default class NearbyFoodTrucks extends React.Component {
   render() {
     return (
       <View style={styles.container}>
         <MapView
+          provider ={PROVIDER_GOOGLE}
           style={{flex: 1}}
           region={{
             latitude: 42.882004,
