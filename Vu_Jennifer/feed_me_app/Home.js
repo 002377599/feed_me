@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
     height: 65,
     margin: 15,
   },
-  instructions: {
+  text: {
     textAlign: 'center',
     color: '#333333',
     marginBottom: 30,
