@@ -80,7 +80,7 @@ export default class UserLogin extends React.Component {
                <TouchableOpacity
                         style = {styles.submitButton}
                         onPress = {
-                           () => this.login(this.state.email, this.state.password)
+                           () => this.props.navigation.navigate('NearbyFoodTrucks')
                         }>
                         <Text style = {styles.submitButtonText}> Submit </Text>
                </TouchableOpacity>
@@ -107,7 +107,7 @@ export default class UserLogin extends React.Component {
                <TouchableOpacity
                         style = {styles.submitButton}
                         onPress = {
-                           () => this.login(this.state.email, this.state.password)
+                           () => this.props.navigation.navigate('Home')
                         }>
                         <Text style = {styles.submitButtonText}> Submit </Text>
                </TouchableOpacity>
@@ -134,9 +134,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   container2: {
-    flex: 1,
+    flex: 2,
     margin: 5,
-    marginBottom: 10,
+    marginBottom: 15,
   },
   container3: {
      flex: 2,
