@@ -2,6 +2,11 @@ import React from 'react';
 import { StyleSheet, Text, View, Button, TextInput, TouchableOpacity, Image } from 'react-native';
 
 export default class UserLogin extends React.Component {
+  static navigationOptions = {
+    title: 'User Login',
+    headerStyle: { backgroundColor: 'white' },
+    headerTitleStyle: { color: 'purple' },
+  };
   constructor(){
     super();
     this.state ={statusLogin:false, statusRegister:false, email:"", password:""}
@@ -59,7 +64,7 @@ export default class UserLogin extends React.Component {
             />
           </View>
         </View>
-        <View style={styles.container2}>
+        <View style={styles.container}>
           <View style={styles.container2}>
           {
             this.state.statusLogin ? <View styles= {styles.container}>
@@ -72,7 +77,7 @@ export default class UserLogin extends React.Component {
               />
               <TextInput style = {styles.input}
                    underlineColorAndroid = "transparent"
-                   placeholder = "Password"
+                   placeholder = "Password        "
                    placeholderTextColor = "#9a73ef"
                    autoCapitalize = "none"
                    onChangeText = {this.handlePassword}
@@ -82,7 +87,7 @@ export default class UserLogin extends React.Component {
                         onPress = {
                            () => this.props.navigation.navigate('NearbyFoodTrucks')
                         }>
-                        <Text style = {styles.submitButtonText}> Submit </Text>
+                        <Text style = {styles.submitButtonText}>Sign In </Text>
                </TouchableOpacity>
              </View>: null
           }
@@ -104,12 +109,19 @@ export default class UserLogin extends React.Component {
                    autoCapitalize = "none"
                    onChangeText = {this.handlePassword}
                />
+               <TextInput style = {styles.input}
+                    underlineColorAndroid = "transparent"
+                    placeholder = "Confirm Password"
+                    placeholderTextColor = "#9a73ef"
+                    autoCapitalize = "none"
+                    onChangeText = {this.handlePassword}
+                />
                <TouchableOpacity
                         style = {styles.submitButton}
                         onPress = {
-                           () => this.props.navigation.navigate('Home')
+                           () => this.ShowLogin()
                         }>
-                        <Text style = {styles.submitButtonText}> Submit </Text>
+                        <Text style = {styles.submitButtonText}>Submit </Text>
                </TouchableOpacity>
              </View>: null
           }
@@ -128,7 +140,7 @@ export default class UserLogin extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 2,
+    flex: 3,
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
@@ -136,12 +148,12 @@ const styles = StyleSheet.create({
   container2: {
     flex: 2,
     margin: 5,
-    marginBottom: 15,
+    marginBottom: 35,
   },
   container3: {
      flex: 2,
      margin: 5,
-     marginBottom: 400,
+     marginBottom: 450,
   },
   buttonContainer: {
     flexDirection: 'row',
@@ -166,18 +178,19 @@ const styles = StyleSheet.create({
     marginBottom: 30,
   },
   input: {
-      margin: 15,
-      height: 40,
-      borderColor: '#7a42f4',
-      borderWidth: 1
+    margin: 15,
+    height: 40,
+    borderColor: '#7a42f4',
+    borderWidth: 1,
    },
    submitButton: {
-      backgroundColor: '#7a42f4',
-      padding: 10,
-      margin: 15,
-      height: 40,
+    backgroundColor: '#7a42f4',
+    padding: 10,
+    margin: 15,
+    height: 40,
    },
    submitButtonText:{
-      color: 'white'
+    color: 'white',
+    textAlign: 'center',
    }
 });

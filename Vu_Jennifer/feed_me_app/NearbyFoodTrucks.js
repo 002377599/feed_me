@@ -3,29 +3,41 @@ import { StyleSheet, Text, View, Button, ScrollView } from 'react-native';
 import MapView, {PROVIDER_GOOGLE} from 'react-native-maps'
 
 export default class NearbyFoodTrucks extends React.Component {
+  static navigationOptions = {
+    title: 'Nearby Food Trucks',
+    headerStyle: { backgroundColor: 'white' },
+    headerTitleStyle: { color: 'purple' },
+  };
   constructor(){
     super();
     this.state = {
         names: [
-           {'name': 'The Loaded Burger', 'feedMeCount': 0, 'id': 1},
-           {'name': 'Gotta Have It', 'feedMeCount': 0, 'id': 2},
-           {'name': 'Not As Famous Cookie Company', 'feedMeCount': 0, 'id': 3},
-           {'name': 'The Loaded Taco', 'feedMeCount': 0, 'id':4},
-           {'name': 'Sweet Jeanius', 'feedMeCount': 0, 'id':5},
-           {'name': "YummY's Funnel Cakes", 'feedMeCount': 0, 'id':6},
-           {'name': 'Tom + Chee Kennesaw', 'feedMeCount': 0, 'id':7},
-           {'name': 'King Kabob', 'feedMeCount': 0, 'id':8},
-           {'name': 'Up Top Italian Ice', 'feedMeCount': 0, 'id':9},
-           {'name': 'The Royal Pig BBQ', 'feedMeCount': 0, 'id':10},
-           {'name': 'Steve', 'feedMeCount': 0, 'id':11},
-           {'name': 'Uptown Food Truck', 'feedMeCount': 0, 'id':12}
+           {'name': 'The Loaded Burger', 'feedMeCount': 0, 'id': 1, 'hasVoted':false},
+           {'name': 'Gotta Have It', 'feedMeCount': 0, 'id': 2, 'hasVoted':false},
+           {'name': 'Not As Famous Cookie Company', 'feedMeCount': 0, 'id': 3, 'hasVoted':false},
+           {'name': 'The Loaded Taco', 'feedMeCount': 0, 'id':4, 'hasVoted':false},
+           {'name': 'Sweet Jeanius', 'feedMeCount': 0, 'id':5, 'hasVoted':false},
+           {'name': "YummY's Funnel Cakes", 'feedMeCount': 0, 'id':6, 'hasVoted':false},
+           {'name': 'Tom + Chee Kennesaw', 'feedMeCount': 0, 'id':7, 'hasVoted':false},
+           {'name': 'King Kabob', 'feedMeCount': 0, 'id':8, 'hasVoted':false},
+           {'name': 'Up Top Italian Ice', 'feedMeCount': 0, 'id':9, 'hasVoted':false},
+           {'name': 'The Royal Pig BBQ', 'feedMeCount': 0, 'id':10, 'hasVoted':false},
+           {'name': 'Steve', 'feedMeCount': 0, 'id':11, 'hasVoted':false},
+           {'name': 'Uptown Food Truck', 'feedMeCount': 0, 'id':12, 'hasVoted':false}
         ]
     }
   }
   UpdateFeedCount = (i) =>{
-    const newNames = [ ...this.state.names ]
-    newNames[i].feedMeCount += 1
-    this.setState({names: newNames})
+    if(this.state.names[i].hasVoted == false)
+    {
+      const newNames = [ ...this.state.names ]
+      newNames[i].feedMeCount += 1
+      newNames[i].hasVoted = true
+      this.setState({names: newNames})
+    }
+    else {
+      alert('You have already voted for this food truck!')
+    }
   }
   render() {
     return (
@@ -37,7 +49,7 @@ export default class NearbyFoodTrucks extends React.Component {
           {
             this.state.names.map((item, index) => (
              <View key = {item.id} style = {styles.item}>
-                <Text style={styles.textItem}>{item.name}</Text>
+                <Text style={styles.textItem2} numberOfLines={5}>{item.name}</Text>
                 <Button
                   style={styles.button}
                   onPress={() =>
@@ -105,6 +117,13 @@ const styles = StyleSheet.create({
       fontWeight: 'bold',
       textAlign: 'left',
       fontSize: 17,
+    },
+    textItem2: {
+      color: '#ffff00',
+      fontWeight: 'bold',
+      textAlign: 'left',
+      fontSize: 17,
+      width: 125,
     },
     button: {
       width: 100,
